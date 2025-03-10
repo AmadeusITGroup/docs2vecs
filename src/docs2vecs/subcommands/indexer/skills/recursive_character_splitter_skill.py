@@ -42,6 +42,7 @@ class RecursiveCharacterTextSplitter(IndexerSkill):
                 chunk = Chunk()
                 chunk.document_id = hashlib.sha256(text.encode()).hexdigest()
                 chunk.document_name = Path(doc.filename).name
+                chunk.tag = doc.tag
                 chunk.content = text
                 chunk.chunk_id = chunk.document_id
                 chunk.source_link = doc.source_url

@@ -4,6 +4,7 @@ class Chunk:
         chunk = Chunk()
         chunk.document_id = dict["document_id"]
         chunk.document_name = dict["document_name"]
+        chunk.tag = dict["document_tag"]
         chunk.content = dict["content"]
         chunk.chunk_id = dict["chunk_id"]
         chunk.source_link = dict["source_link"]
@@ -13,6 +14,7 @@ class Chunk:
     def __init__(self):
         self.document_id = None
         self.document_name = None
+        self.tag = None
         self.content = None
         self.chunk_id = None
         self.source_link = None
@@ -33,6 +35,7 @@ class Chunk:
         return {
             "document_id": self.document_id,
             "document_name": self.document_name,
+            "tag": self.tag,
             "content": self.content,
             "chunk_id": self.chunk_id,
             "source_link": self.source_link,
