@@ -18,6 +18,8 @@ definitions:
             type: dict
             required: False
             schema:
+              tag:
+                type: string
               api_url:
                 type: string
                 regex: '^http.*'
@@ -135,6 +137,9 @@ definitions:
                     type: string
                     required: False
                   embedding:
+                    type: string
+                    required: False
+                  tag: 
                     type: string
                     required: False
               overwrite_index:

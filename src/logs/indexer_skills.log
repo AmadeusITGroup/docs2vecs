@@ -1,103 +1,287 @@
-2025-02-26 10:30:22,582 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:30:22,660 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:30:22,660 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:30:22,660 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:30:30,625 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:30:30,625 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:30:30,625 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:30:30,625 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:31:21,221 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:31:21,222 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:31:21,222 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:31:21,222 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:31:22,211 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:31:22,211 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:31:22,211 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:31:22,212 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:38:47,869 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:38:47,871 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:38:47,871 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:38:47,871 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:38:52,035 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:38:52,035 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:38:52,036 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:38:52,036 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:40:07,682 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:40:07,683 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:40:07,683 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:40:07,683 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:40:08,635 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:40:08,635 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:40:08,635 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:40:08,636 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:41:41,464 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:41:41,465 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:41:41,465 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:41:41,465 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:41:42,408 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:41:42,408 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:41:42,408 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:41:42,409 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:42:19,463 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:42:19,464 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:42:19,464 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:42:19,465 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:42:20,380 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:42:20,382 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:42:20,383 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:43:47,693 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 10:43:47,693 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 10:44:25,254 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 10:44:25,254 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 10:44:35,907 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 10:44:35,908 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:44:35,908 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 10:44:35,908 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 10:44:37,362 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:44:37,362 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 10:44:37,362 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 10:44:37,363 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 10:52:24,616 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 10:52:24,616 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 11:05:10,956 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 11:05:10,956 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 12:10:38,333 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 12:10:38,334 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 12:13:07,747 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 12:13:07,747 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 12:13:35,888 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 12:13:35,888 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:06:21,273 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 18:06:21,274 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:08:01,036 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 18:08:01,036 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:08:58,750 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 18:08:58,750 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:09:21,388 - ScrollWorldExporterSkill - DEBUG - Step 3 of 3 (100%)
-2025-02-26 18:09:23,968 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:09:46,580 - ScrollWorldExporterSkill - DEBUG - Step 3 of 3 (100%)
-2025-02-26 18:25:26,209 - ScrollWorldExporterSkill - INFO - Running ScrollWorldExporter
-2025-02-26 18:25:26,210 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:25:48,865 - ScrollWorldExporterSkill - DEBUG - Step 3 of 3 (100%)
-2025-02-26 18:25:51,629 - ScrollWorldExporterSkill - DEBUG - Stored downloaded file at: /Users/dpomian/Downloads/sw_export_temp/Unleash the power of GenAI without breaking the bank!-v10-20250226_172543.docx
-2025-02-26 18:25:51,629 - ScrollWorldExporterSkill - DEBUG - Exporting confluence page: 1774209540
-2025-02-26 18:26:13,827 - ScrollWorldExporterSkill - DEBUG - Step 3 of 3 (0%)
-2025-02-26 18:26:34,411 - ScrollWorldExporterSkill - DEBUG - Step 3 of 3 (100%)
-2025-02-26 18:26:37,074 - ScrollWorldExporterSkill - DEBUG - Stored downloaded file at: /Users/dpomian/Downloads/sw_export_temp/Unleash the power of GenAI without breaking the bank!-v10-20250226_172613.docx
-2025-02-26 18:28:24,116 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 18:28:24,137 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:28:24,137 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 18:28:24,137 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 18:28:25,263 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:28:25,263 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 18:28:25,263 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 18:28:25,263 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:30:16,537 - FileScannerSkill - INFO - Running FileScannerSkill...
-2025-02-26 18:30:16,538 - FileScannerSkill - INFO - Found file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:30:16,538 - FileScannerSkill - DEBUG - Returning 1 documents
-2025-02-26 18:30:16,539 - DefaultFileReader - INFO - Running DefaultFileReader...
-2025-02-26 18:30:17,567 - DefaultFileReader - INFO - Successfully read file: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:30:17,567 - DefaultFileReader - INFO - Finished reading 1 documents
-2025-02-26 18:30:17,568 - SemanticSplitter - INFO - Running SemanticSplitter...
-2025-02-26 18:30:17,568 - SemanticSplitter - DEBUG - Processing document: /Users/dpomian/Downloads/globaldns.md
-2025-02-26 18:30:19,397 - SemanticSplitter - DEBUG - Split /Users/dpomian/Downloads/globaldns.md into 3 chunks
+2025-03-11 09:50:42,405 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 09:50:42,431 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add semantic ranking to queries in.txt
+2025-03-11 09:50:42,432 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add spell check to queries in Azure.txt
+2025-03-11 09:50:42,432 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Catan.txt
+2025-03-11 09:50:42,433 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Configure semantic ranker and retur.txt
+2025-03-11 09:50:42,433 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a hybrid query in Azure AI S.txt
+2025-03-11 09:50:42,434 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector index.txt
+2025-03-11 09:50:42,434 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector query in Azure AI S.txt
+2025-03-11 09:50:42,434 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create an index in Azure AI Search.txt
+2025-03-11 09:50:42,435 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Les Colons de Catane.txt
+2025-03-11 09:50:42,435 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 09:50:42,435 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Generative search (RAG).txt
+2025-03-11 09:50:42,435 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Semantic ranking..txt
+2025-03-11 09:50:42,436 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Vector search using REST.txt
+2025-03-11 09:50:42,436 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart_Full text search using the Azure SDKs.txt
+2025-03-11 09:50:42,436 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in keyword search.txt
+2025-03-11 09:50:42,436 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in vector search.txt
+2025-03-11 09:50:42,437 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance scoring in hybrid search.txt
+2025-03-11 09:50:42,437 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Rewrite queries with semantic ranke.txt
+2025-03-11 09:50:42,437 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_authentication.txt
+2025-03-11 09:50:42,438 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_semantic_search.txt
+2025-03-11 09:50:42,438 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_simple_query.txt
+2025-03-11 09:50:42,438 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_vector_search.txt
+2025-03-11 09:50:42,439 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Semantic ranking in Azure AI Search.txt
+2025-03-11 09:50:42,439 - FileScannerSkill - DEBUG - Returning 23 documents
+2025-03-11 09:50:42,443 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 09:50:42,453 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add semantic ranking to queries in.txt
+2025-03-11 09:50:42,458 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add spell check to queries in Azure.txt
+2025-03-11 09:50:42,463 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Catan.txt
+2025-03-11 09:50:42,468 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Configure semantic ranker and retur.txt
+2025-03-11 09:50:42,474 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a hybrid query in Azure AI S.txt
+2025-03-11 09:50:42,481 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector index.txt
+2025-03-11 09:50:42,486 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector query in Azure AI S.txt
+2025-03-11 09:50:42,493 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create an index in Azure AI Search.txt
+2025-03-11 09:50:42,498 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Les Colons de Catane.txt
+2025-03-11 09:50:42,996 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 09:50:42,998 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Generative search (RAG).txt
+2025-03-11 09:50:43,000 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Semantic ranking..txt
+2025-03-11 09:50:43,002 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Vector search using REST.txt
+2025-03-11 09:50:43,013 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart_Full text search using the Azure SDKs.txt
+2025-03-11 09:50:43,019 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in keyword search.txt
+2025-03-11 09:50:43,028 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in vector search.txt
+2025-03-11 09:50:43,031 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance scoring in hybrid search.txt
+2025-03-11 09:50:43,034 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Rewrite queries with semantic ranke.txt
+2025-03-11 09:50:43,039 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_authentication.txt
+2025-03-11 09:50:43,044 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_semantic_search.txt
+2025-03-11 09:50:43,052 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_simple_query.txt
+2025-03-11 09:50:43,058 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_vector_search.txt
+2025-03-11 09:50:43,064 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/Semantic ranking in Azure AI Search.txt
+2025-03-11 09:50:43,064 - DefaultFileReader - INFO - Finished reading 30 documents
+2025-03-11 09:50:43,066 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 09:50:43,066 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add semantic ranking to queries in.txt...
+2025-03-11 09:50:43,067 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add semantic ranking to queries in.txt into 17 chunks
+2025-03-11 09:50:43,067 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add spell check to queries in Azure.txt...
+2025-03-11 09:50:43,071 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Add spell check to queries in Azure.txt into 9 chunks
+2025-03-11 09:50:43,071 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Catan.txt...
+2025-03-11 09:50:43,071 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Catan.txt into 16 chunks
+2025-03-11 09:50:43,072 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Configure semantic ranker and retur.txt...
+2025-03-11 09:50:43,073 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Configure semantic ranker and retur.txt into 6 chunks
+2025-03-11 09:50:43,074 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a hybrid query in Azure AI S.txt...
+2025-03-11 09:50:43,074 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a hybrid query in Azure AI S.txt into 31 chunks
+2025-03-11 09:50:43,075 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector index.txt...
+2025-03-11 09:50:43,076 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector index.txt into 32 chunks
+2025-03-11 09:50:43,076 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector query in Azure AI S.txt...
+2025-03-11 09:50:43,076 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create a vector query in Azure AI S.txt into 27 chunks
+2025-03-11 09:50:43,077 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create an index in Azure AI Search.txt...
+2025-03-11 09:50:43,077 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Create an index in Azure AI Search.txt into 33 chunks
+2025-03-11 09:50:43,078 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Les Colons de Catane.txt...
+2025-03-11 09:50:43,078 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Les Colons de Catane.txt into 13 chunks
+2025-03-11 09:50:43,079 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,082 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 09:50:43,082 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,082 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,082 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,082 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,083 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,083 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,083 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,083 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,083 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,084 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,084 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,084 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,084 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf...
+2025-03-11 09:50:43,085 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 09:50:43,085 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Generative search (RAG).txt...
+2025-03-11 09:50:43,086 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Generative search (RAG).txt into 28 chunks
+2025-03-11 09:50:43,086 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Semantic ranking..txt...
+2025-03-11 09:50:43,086 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Semantic ranking..txt into 11 chunks
+2025-03-11 09:50:43,087 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Vector search using REST.txt...
+2025-03-11 09:50:43,087 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart Vector search using REST.txt into 64 chunks
+2025-03-11 09:50:43,088 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart_Full text search using the Azure SDKs.txt...
+2025-03-11 09:50:43,088 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Quickstart_Full text search using the Azure SDKs.txt into 12 chunks
+2025-03-11 09:50:43,089 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in keyword search.txt...
+2025-03-11 09:50:43,090 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in keyword search.txt into 24 chunks
+2025-03-11 09:50:43,094 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in vector search.txt...
+2025-03-11 09:50:43,095 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance in vector search.txt into 14 chunks
+2025-03-11 09:50:43,095 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance scoring in hybrid search.txt...
+2025-03-11 09:50:43,095 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Relevance scoring in hybrid search.txt into 16 chunks
+2025-03-11 09:50:43,095 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Rewrite queries with semantic ranke.txt...
+2025-03-11 09:50:43,096 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Rewrite queries with semantic ranke.txt into 17 chunks
+2025-03-11 09:50:43,096 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_authentication.txt...
+2025-03-11 09:50:43,096 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_authentication.txt into 5 chunks
+2025-03-11 09:50:43,096 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_semantic_search.txt...
+2025-03-11 09:50:43,097 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_semantic_search.txt into 3 chunks
+2025-03-11 09:50:43,097 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_simple_query.txt...
+2025-03-11 09:50:43,097 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_simple_query.txt into 2 chunks
+2025-03-11 09:50:43,097 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_vector_search.txt...
+2025-03-11 09:50:43,098 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/sample_vector_search.txt into 11 chunks
+2025-03-11 09:50:43,098 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan/Semantic ranking in Azure AI Search.txt...
+2025-03-11 09:50:43,098 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/Semantic ranking in Azure AI Search.txt into 16 chunks
+2025-03-11 09:53:57,062 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 09:53:57,073 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:53:57,074 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 09:53:57,076 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 09:53:57,082 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:53:57,083 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 09:57:35,519 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 09:57:35,521 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:57:35,521 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 09:57:35,522 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 09:57:35,524 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:57:35,524 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 09:59:32,394 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 09:59:32,397 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:59:32,397 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 09:59:32,399 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 09:59:32,403 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 09:59:32,403 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 09:59:38,144 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 09:59:38,144 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 09:59:38,145 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:02:01,089 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:02:01,091 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:02:01,091 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:02:01,092 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:02:01,093 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:02:01,094 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:02:01,095 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:02:01,095 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:02:01,095 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:02:02,252 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:02:02,253 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:02:02,253 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:08:56,296 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:08:56,298 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:08:56,298 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:08:56,300 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:08:56,302 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:08:56,302 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:08:56,303 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:08:56,304 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:08:56,305 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:08:57,427 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:08:57,428 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:08:57,428 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:08:57,588 - ChromaDBVectorStoreSkill - INFO - Running ChromaDBVectorStoreSkill...
+2025-03-11 10:08:58,496 - ChromaDBVectorStoreSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:08:58,496 - ChromaDBVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:13:48,114 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:13:48,116 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:13:48,116 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:13:48,117 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:13:48,118 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:13:48,119 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:13:48,119 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:13:48,120 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:13:48,120 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:13:49,419 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:13:49,422 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:13:49,423 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:13:49,560 - ChromaDBVectorStoreSkill - INFO - Running ChromaDBVectorStoreSkill...
+2025-03-11 10:13:51,207 - ChromaDBVectorStoreSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:13:51,207 - ChromaDBVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:14:34,318 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:14:34,320 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:14:34,320 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:14:34,321 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:14:34,323 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:14:34,323 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:14:34,324 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:14:34,325 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:14:34,325 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:14:35,493 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:14:35,494 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:14:35,494 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:14:35,622 - ChromaDBVectorStoreSkill - INFO - Running ChromaDBVectorStoreSkill...
+2025-03-11 10:14:37,037 - ChromaDBVectorStoreSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:14:37,038 - ChromaDBVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:19:20,577 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:19:20,580 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:19:20,580 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:19:20,581 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:19:20,583 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:19:20,583 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:19:20,584 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:19:20,584 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:19:20,585 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:19:21,725 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:19:21,726 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:19:21,727 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:19:21,862 - ChromaDBVectorStoreSkill - INFO - Running ChromaDBVectorStoreSkill...
+2025-03-11 10:19:23,251 - ChromaDBVectorStoreSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:19:23,251 - ChromaDBVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:24:39,336 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:24:39,338 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:24:39,338 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:24:39,339 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:24:39,341 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:24:39,342 - DefaultFileReader - INFO - Finished reading 1 documents
+2025-03-11 10:24:39,343 - RecursiveCharacterTextSplitter - INFO - Running RecursiveCharacterTextSplitter...
+2025-03-11 10:24:39,343 - RecursiveCharacterTextSplitter - DEBUG - Splitting /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt...
+2025-03-11 10:24:39,344 - RecursiveCharacterTextSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt into 3 chunks
+2025-03-11 10:24:40,566 - LlamaFastembedEmbeddingSkill - INFO - Running LlamaFastembedEmbeddingSkill...
+
+2025-03-11 10:24:40,568 - LlamaFastembedEmbeddingSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:24:40,568 - LlamaFastembedEmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:24:40,695 - ChromaDBVectorStoreSkill - INFO - Running ChromaDBVectorStoreSkill...
+2025-03-11 10:24:43,240 - ChromaDBVectorStoreSkill - DEBUG - Going to process 1 documents
+2025-03-11 10:24:43,240 - ChromaDBVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan2/Test2.txt
+2025-03-11 10:39:38,258 - FileScannerSkill - INFO - Running FileScannerSkill...
+2025-03-11 10:39:38,310 - FileScannerSkill - INFO - Found file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:38,310 - FileScannerSkill - DEBUG - Returning 1 documents
+2025-03-11 10:39:38,312 - DefaultFileReader - INFO - Running DefaultFileReader...
+2025-03-11 10:39:39,209 - DefaultFileReader - INFO - Successfully read file: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:39,209 - DefaultFileReader - INFO - Finished reading 8 documents
+2025-03-11 10:39:39,211 - SemanticSplitter - INFO - Running SemanticSplitter...
+2025-03-11 10:39:39,212 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:41,460 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:41,461 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:42,074 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:42,075 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:42,745 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:42,746 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:43,246 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:43,246 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:43,701 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:43,701 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:44,250 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:44,251 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:44,749 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 2 chunks
+2025-03-11 10:39:44,749 - SemanticSplitter - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:45,559 - SemanticSplitter - DEBUG - Split /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf into 3 chunks
+2025-03-11 10:39:45,561 - AzureAda002EmbeddingSkill - INFO - Running AzureAda002EmbeddingSkill...
+2025-03-11 10:39:45,561 - AzureAda002EmbeddingSkill - INFO - Number of documents: 8
+2025-03-11 10:39:45,561 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:45,562 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 1c28c835-0872-44cb-a102-7a48f2f50a22
+2025-03-11 10:39:46,088 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: f629217a-7d7c-4e2e-b93a-bdaa6a5e75f1
+2025-03-11 10:39:46,549 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:46,549 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 4761c11d-7f41-4969-8c37-5a0231080de6
+2025-03-11 10:39:47,133 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 59e96f65-5470-4822-a659-0457c6ecbe0a
+2025-03-11 10:39:47,642 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:47,648 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 7eb0654f-25d1-4d47-8fd2-a78ae258365d
+2025-03-11 10:39:48,110 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: baf7e883-a9d9-4589-a379-6b3b717dbae5
+2025-03-11 10:39:48,550 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:48,551 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 04e0d841-0930-4711-93f7-89d32cb9e5d9
+2025-03-11 10:39:49,136 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 192806f2-54e7-42e4-9be7-82c1a6be28af
+2025-03-11 10:39:49,591 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:49,592 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: de593d6b-f88a-4c50-9c01-1552ec01d80b
+2025-03-11 10:39:50,117 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 30614b96-ce8d-4ad0-94c8-f333ffad6fc8
+2025-03-11 10:39:50,616 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:50,617 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 3d19103c-99f5-49ad-b3b6-349efdb6a4fa
+2025-03-11 10:39:51,090 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 53b87b5c-658e-4a95-a9e0-cfa4dec8ffa1
+2025-03-11 10:39:51,561 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:51,563 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 3547b085-1b75-47fe-a487-4a3f4508cc09
+2025-03-11 10:39:52,058 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: ab717452-faff-4473-a608-8b2aa20166a2
+2025-03-11 10:39:52,548 - AzureAda002EmbeddingSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:52,549 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 189abe62-8b79-4d75-bed6-c0d6f910c281
+2025-03-11 10:39:53,003 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: df174c7b-b5a0-4e64-abf3-89fb6fdb6f28
+2025-03-11 10:39:53,454 - AzureAda002EmbeddingSkill - DEBUG - Creating embedding for chunk: 3b71fd8c-9191-42a9-b720-32a8e0799560
+2025-03-11 10:39:53,980 - AzureVectorStoreSkill - INFO - Running AzureVectorStoreSkill
+2025-03-11 10:39:53,980 - AzureVectorStoreSkill - DEBUG - Going to process 8 documents
+2025-03-11 10:39:53,980 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,981 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,981 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,981 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,981 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,982 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,982 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:39:53,982 - AzureVectorStoreSkill - DEBUG - Processing document: /mnt/c/Users/olanfranchi/Documents/files_to_scan/monopoly_rules.pdf
+2025-03-11 10:40:01,460 - AzureVectorStoreSkill - DEBUG - Azure AI Search upload results: [{'chunk_id': 'cebf94a23a97f46e79ae16fe2f7d4bd54994ccf8ba86815de71281b1fcab6881', 'succeeded': True, 'status_code': 201}, {'chunk_id': '2bb363a0a1e7abeec9927a44027028ad228e7013658d69208559f7f8f4d5989f', 'succeeded': True, 'status_code': 201}, {'chunk_id': '7a3307e8128c36eadc7e70d27c6e1be477355626aca7ce722547d3ea9df050b1', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'cf835f971bea14a8cd54fb50532b99125a58358d77cb8b6f70365f842a0ca0e2', 'succeeded': True, 'status_code': 201}, {'chunk_id': '58c636fc31f665c214aa5027ff08932c4b4c60cbfc18c5abbe009f19593e1aa6', 'succeeded': True, 'status_code': 201}, {'chunk_id': '25d67c685404a7ab54c6b14f07f126f13e9156c1ad6ef81ef62a1aff9fca6296', 'succeeded': True, 'status_code': 201}, {'chunk_id': '6e7b2d2ce83d295eebee9c112f653e374f147897e2cd04e66848b37ac497e1cc', 'succeeded': True, 'status_code': 201}, {'chunk_id': '18c3c2892b4b6f697197f3c7088abd212c213353413856162881c945811137ab', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'e41ed7eb4ffa56161e224cb9579bf9c1999ff941e61dac6c6bda4fca8d1bfe74', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'b6db49c92828b5b5fa24aa4d9f6e8f17e040a3ae6cab2a4ad900c20e51b12075', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'e69fcf7885f76475332df052e7edf56e1f9f7919ab38c96e2ef633218abf519a', 'succeeded': True, 'status_code': 201}, {'chunk_id': '72fc2a82da73d21d78bb92ef5697269fea3034e6eff0128bcf1d70f9a18fb12e', 'succeeded': True, 'status_code': 201}, {'chunk_id': '8976f790985c7c74642d2d1d03eb9c26b6801e56fb1f24ee876af4ce4006a3e3', 'succeeded': True, 'status_code': 201}, {'chunk_id': '73d2f09abcd91f50e33ab5c5acea6c6f267da20ee33e6f36a4c1a1200949e520', 'succeeded': True, 'status_code': 201}, {'chunk_id': '05e5f987d0de066f86a8ce73b444b2f61d1ac6de7c39f5f50c74bef29c06abbb', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'bf0993d218e463b427f68c5df251671f0e48ed00637e7121bc4a455f955ffbcb', 'succeeded': True, 'status_code': 201}, {'chunk_id': 'ed65609741255663c66c15c861744c1c086ca294f99334829af56a0e7d4ba995', 'succeeded': True, 'status_code': 201}]

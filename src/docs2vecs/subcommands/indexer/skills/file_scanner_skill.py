@@ -23,6 +23,7 @@ class FileScannerSkill(IndexerSkill):
         self._path = Path(self._config["path"]).expanduser().resolve()
         self._recursive = self._config.get("recursive", False)
         self._filter = self._config.get("filter", [])
+        self._tag = self._config.get("tag", "default")
 
     def run(self, documents: Optional[List[Document]]) -> List[Document]:
         """Scan directory and return list of Documents with file paths.
@@ -51,7 +52,7 @@ class FileScannerSkill(IndexerSkill):
             # Keep if matches any include pattern
             if not self._filter or any(fnmatch.fnmatch(file_path.name, pattern) for pattern in self._filter):
                 # Add file as document
-                doc = Document(filename=file_path)
+                doc = Document(filename=file_path, tag=self._tag)
                 result.append(doc)
 
         for doc in result:

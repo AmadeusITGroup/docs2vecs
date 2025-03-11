@@ -58,6 +58,7 @@ class DefaultFileReader(FileLoaderSkill):
         result = []
         for doc in documents:
             file_path = Path(doc.filename)
+            file_tag = doc.tag
             if not file_path.exists():
                 self.logger.info(f"File not found: {file_path}")
                 continue
@@ -70,7 +71,7 @@ class DefaultFileReader(FileLoaderSkill):
                 continue
 
             try:
-                loaded_docs = handler(file_path)
+                loaded_docs = handler(file_path, file_tag)
                 result.extend(loaded_docs)
                 self.logger.info(f"Successfully read file: {file_path}")
             except Exception as e:
@@ -81,38 +82,38 @@ class DefaultFileReader(FileLoaderSkill):
 
         return result
 
-    def _load_markdown(self, file_path: Path) -> List[Document]:
+    def _load_markdown(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load markdown files using UnstructuredMarkdownLoader."""
         loader = UnstructuredMarkdownLoader(str(file_path), mode="single")
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
 
-    def _load_text(self, file_path: Path) -> List[Document]:
+    def _load_text(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load text files using TextLoader."""
         loader = TextLoader(str(file_path))
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
 
-    def _load_pdf(self, file_path: Path) -> List[Document]:
+    def _load_pdf(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load PDF files using PyPDFLoader."""
         loader = PyPDFLoader(str(file_path))
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
 
-    def _load_word(self, file_path: Path) -> List[Document]:
+    def _load_word(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load Word documents using UnstructuredWordDocumentLoader."""
         loader = UnstructuredWordDocumentLoader(str(file_path))
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
 
-    def _load_powerpoint(self, file_path: Path) -> List[Document]:
+    def _load_powerpoint(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load PowerPoint files using UnstructuredPowerPointLoader."""
         loader = UnstructuredPowerPointLoader(str(file_path))
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
 
-    def _load_excel(self, file_path: Path) -> List[Document]:
+    def _load_excel(self, file_path: Path, file_tag: str) -> List[Document]:
         """Load Excel files using UnstructuredExcelLoader."""
         loader = UnstructuredExcelLoader(str(file_path))
         docs = loader.load()
-        return [Document(filename=str(file_path), source_url=str(file_path), text=doc.page_content) for doc in docs]
+        return [Document(filename=str(file_path), source_url=str(file_path), tag=file_tag, text=doc.page_content) for doc in docs]
