@@ -65,7 +65,6 @@ class LlamaFastembedEmbeddingSkill(IndexerSkill):
         self.logger.debug(f"Going to process {len(input)} documents")
         for doc in input:
             self.logger.debug(f"Processing document: {doc.filename}")
-            print(doc.tag)
             for chunk in doc.chunks:
                 chunk.embedding = "" if not chunk.content else self._get_embedding(chunk.content)
 
