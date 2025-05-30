@@ -10,7 +10,7 @@ definitions:
         schema:
           type:
             type: string
-            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader']
+            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader', 'anonymizer']            
             required: True
           name:
             type: string
@@ -21,6 +21,8 @@ definitions:
               tag:
                 type: string
                 required: False
+              use_placeholders:
+                type: boolean
               api_url:
                 type: string
                 regex: '^http.*'
