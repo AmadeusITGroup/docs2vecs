@@ -2,19 +2,20 @@ from enum import StrEnum
 
 from docs2vecs.subcommands.indexer.config import Config
 from docs2vecs.subcommands.indexer.db.mongodb import MongoDbConnection
-from docs2vecs.subcommands.indexer.skills.ada002_embedding_skill import AzureAda002EmbeddingSkill
-from docs2vecs.subcommands.indexer.skills.azure_blob_store_uploader_skill import AzureBlobStoreUploaderSkill
-from docs2vecs.subcommands.indexer.skills.azure_vector_store_skill import AzureVectorStoreSkill
-from docs2vecs.subcommands.indexer.skills.chromadb_vector_store_skill import ChromaDBVectorStoreSkill
-from docs2vecs.subcommands.indexer.skills.default_file_reader import DefaultFileReader
-from docs2vecs.subcommands.indexer.skills.document_intelligence_skill import AzureDocumentIntelligenceSkill
-from docs2vecs.subcommands.indexer.skills.file_scanner_skill import FileScannerSkill
-from docs2vecs.subcommands.indexer.skills.jira_loader_skill import JiraLoaderSkill
-from docs2vecs.subcommands.indexer.skills.llama_fastembed_embedding_skill import LlamaFastembedEmbeddingSkill
-from docs2vecs.subcommands.indexer.skills.recursive_character_splitter_skill import RecursiveCharacterTextSplitter
-from docs2vecs.subcommands.indexer.skills.scrollwordexporter_skill import ScrollWorldExporterSkill
-from docs2vecs.subcommands.indexer.skills.semantic_splitter_skill import SemanticSplitter
-from docs2vecs.subcommands.indexer.skills.tracker import VectorStoreTracker
+from docs2vecs.subcommands.indexer.skills import AzureAda002EmbeddingSkill
+from docs2vecs.subcommands.indexer.skills import AzureBlobStoreUploaderSkill
+from docs2vecs.subcommands.indexer.skills import AzureVectorStoreSkill
+from docs2vecs.subcommands.indexer.skills import ChromaDBVectorStoreSkill
+from docs2vecs.subcommands.indexer.skills import DefaultFileReader
+from docs2vecs.subcommands.indexer.skills import AzureDocumentIntelligenceSkill
+from docs2vecs.subcommands.indexer.skills import FileScannerSkill
+from docs2vecs.subcommands.indexer.skills import JiraLoaderSkill
+from docs2vecs.subcommands.indexer.skills import LlamaFastembedEmbeddingSkill
+from docs2vecs.subcommands.indexer.skills import RecursiveCharacterTextSplitter
+from docs2vecs.subcommands.indexer.skills import ScrollWorldExporterSkill
+from docs2vecs.subcommands.indexer.skills import SemanticSplitter
+from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
+from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
 
 
 class SkillType(StrEnum):
@@ -42,6 +43,7 @@ class AvailableSkillName(StrEnum):
     # vector stores
     AZ_AISearch = "azure-ai-search"
     CHROMADB = "chromadb"
+    FAISSDB = "faissdb"
 
     # uplaoders
     AZ_BLOB_STORE = "azure-blob-store"
@@ -74,6 +76,7 @@ AVAILABLE_SKILLS = {
     SkillType.VECTOR_STORE: {
         AvailableSkillName.AZ_AISearch: AzureVectorStoreSkill,
         AvailableSkillName.CHROMADB: ChromaDBVectorStoreSkill,
+        AvailableSkillName.FAISSDB: FaissVectorStoreSkill,
     },
     SkillType.UPLOADER: {AvailableSkillName.AZ_BLOB_STORE: AzureBlobStoreUploaderSkill},
     SkillType.SPLITTER: {

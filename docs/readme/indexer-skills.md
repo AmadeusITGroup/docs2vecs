@@ -213,8 +213,28 @@ Stores embeddings in a Chroma vector store. Ideal for prototyping.
     name: chromadb
     params:
         db_path: path/to/where/your/chroma/db/is    # if you don't have any yet, a new one will be created at the specified path
-        collection_name: replace-this-with-your-collection-name # if you don't have a collection yet, a new one will be created when documents are inseted
+        collection_name: replace-this-with-your-collection-name # if you don't have a collection yet, a new one will be created when documents are inserted
 ```
+
+### FAISS
+Stores embeddings in a faiss vector store. 
+
+```yaml
+- skill: &FaissDbVectorStore
+    type: vector-store
+    name: faissdb
+    params:
+        db_path: path/to/where/your/faiss/db/is    # if you don't have any yet, a new one will be created at the specified path
+        collection_name: replace-this-with-your-collection-name # if you don't have a collection yet, a new one will be created when documents are inserted
+        dimension : replace-with-your-embeddings-dimension # Ensure the correct dimensions are provided; otherwise, an error will occur.
+        overwrite_index: true  # true - before storing data, it will remove all the documents from your index. false - will append documents to your index
+
+```     
+
+
+
+
+
 </details>
 
 

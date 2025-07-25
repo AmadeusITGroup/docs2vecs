@@ -19,7 +19,7 @@ class ChromaDBVectorStoreSkill(IndexerSkill):
         self.logger.info("Running ChromaDBVectorStoreSkill...")
 
         db_path = Path(self._config["db_path"]).expanduser().resolve().as_posix()
-        chroma_client = self._get_client(db_path)
+        chroma_client: chromadb.Client = self._get_client(db_path)
         chroma_collection = chroma_client.get_or_create_collection(self._config["collection_name"])
 
         self.logger.debug(f"Going to process {len(input)} documents")

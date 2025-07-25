@@ -12,16 +12,19 @@ from docs2vecs.subcommands.indexer.skills.skill import IndexerSkill
 
 
 class RecursiveCharacterTextSplitter(IndexerSkill):
+    DEFAULT_CHUNK_SIZE = 1000
+    DEFAULT_CHUNK_OVERLAP = 100
+    
     def __init__(self, config: dict, global_config: Config):
         super().__init__(config, global_config)
         self._set_config_defaults()
 
     def _set_config_defaults(self):
         if "chunk_size" not in self._config:
-            self._config["chunk_size"] = 1000
+            self._config["chunk_size"] = RecursiveCharacterTextSplitter.DEFAULT_CHUNK_SIZE
 
         if "chunk_overlap" not in self._config:
-            self._config["chunk_overlap"] = 100
+            self._config["chunk_overlap"] = RecursiveCharacterTextSplitter.DEFAULT_CHUNK_OVERLAP
 
     def run(self, input: Optional[List[Document]] = None) -> List[Document]:
         self.logger.info("Running RecursiveCharacterTextSplitter...")

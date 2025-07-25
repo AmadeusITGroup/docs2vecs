@@ -74,3 +74,10 @@ docs/_build
 
 # Mypy Cache
 .mypy_cache/
+
+# logs
+logs/indexer_skills.log
+src/logs/indexer_skills.log
+
+# chroma index sqlite3
+src/localhost/chroma.sqlite3

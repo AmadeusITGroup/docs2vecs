@@ -119,6 +119,9 @@ definitions:
               api_token:
                 type: string
                 required: False
+              dimension:
+                type: integer
+                required: False
               field_mapping:
                 type: dict
                 schema:
