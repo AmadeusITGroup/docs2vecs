@@ -13,7 +13,7 @@ class AzureAda002EmbeddingSkill(IndexerSkill):
 
     def az_ada002_embeddings(self, content: str, chunk_id=None):
         self.logger.debug(
-            f"Requesting embedding for chunk_id={chunk_id}, content_length={len(content)}"
+            f"Requesting embedding for chunk_id={chunk_id}, content_length={len(content)} chars"
         )
         embed_model = AzureOpenAIEmbedding(
             deployment_name=self._config["deployment_name"],
@@ -21,13 +21,11 @@ class AzureAda002EmbeddingSkill(IndexerSkill):
             azure_endpoint=self._config["endpoint"],
             api_version=self._config["api_version"],
         )
-        try:
-            embedding = embed_model.get_query_embedding(content)
-            self.logger.debug(f"Received embedding for chunk_id={chunk_id}")
-            return embedding
-        except Exception as e:
-            self.logger.error(f"Embedding failed for chunk_id={chunk_id}: {e}")
-            return None
+        embedding = embed_model.get_query_embedding(content)
+        self.logger.debug(
+            f"Successfully received embedding for chunk_id={chunk_id}, embedding_dim={len(embedding) if embedding else 0}"
+        )
+        return embedding
 
     def run(self, input: Optional[List[Document]] = None) -> Optional[List[Document]]:
         self.logger.info(
@@ -45,11 +43,8 @@ class AzureAda002EmbeddingSkill(IndexerSkill):
             self.logger.debug(f"Processing document: {doc.filename}")
             for chunk in doc.chunks:
                 self.logger.debug(f"Creating embedding for chunk: {chunk.chunk_id}")
-                if not chunk.content:
-                    chunk.embedding = ""
-                else:
-                    chunk.embedding = self.az_ada002_embeddings(
-                        chunk.content, chunk_id=chunk.chunk_id
-                    )
+                chunk.embedding = "" if not chunk.content else self.az_ada002_embeddings(
+                    chunk.content, chunk_id=chunk.chunk_id
+                )
 
         return input
