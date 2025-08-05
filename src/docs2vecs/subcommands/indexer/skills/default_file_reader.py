@@ -24,6 +24,7 @@ class DefaultFileReader(FileLoaderSkill):
     - .doc, .docx: Word documents using UnstructuredWordDocumentLoader
     - .ppt, .pptx: PowerPoint files using UnstructuredPowerPointLoader
     - .xls, .xlsx: Excel files using UnstructuredExcelLoader
+    - .yml, .yaml: YAML files using PyYAML (multiple documents supported)
     """
 
     def __init__(self, skill_config: dict, global_config: Config) -> None:
@@ -38,7 +39,32 @@ class DefaultFileReader(FileLoaderSkill):
             ".pptx": self._load_powerpoint,
             ".xls": self._load_excel,
             ".xlsx": self._load_excel,
+            ".yml": self._load_yaml,
+            ".yaml": self._load_yaml,
         }
+    
+    def _load_yaml(self, file_path: Path) -> List[Document]:
+        """Load YAML files that may contain multiple documents separated by ---."""
+        try:
+            import yaml
+        except ImportError as err:
+            raise ImportError("yaml module is required to read YAML files.") from err
+        
+        documents = []
+        with file_path.open() as fp:
+            for i, content in enumerate(yaml.safe_load_all(fp)):
+                if content is not None:                    
+                    yaml_text = yaml.safe_dump(content)                    
+                    doc_name = f"{file_path.stem}_doc_{i}{file_path.suffix}"
+                    documents.append(
+                        Document(
+                            filename=str(file_path), 
+                            source_url=str(file_path), 
+                            text=yaml_text
+                        )
+                    )
+            
+        return documents
 
     def run(self, documents: Optional[List[Document]]) -> List[Document]:
         """Process input documents by reading their content based on file extension.
