@@ -16,6 +16,8 @@ from docs2vecs.subcommands.indexer.skills import ScrollWorldExporterSkill
 from docs2vecs.subcommands.indexer.skills import SemanticSplitter
 from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
 from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
+from docs2vecs.subcommands.indexer.skills.confluence_faq_splitter_skill import ConfluenceFAQSplitter
+from docs2vecs.subcommands.indexer.skills.teams_qna_loader_skill import TeamsQnALoaderSkill
 
 
 class SkillType(StrEnum):
@@ -51,6 +53,7 @@ class AvailableSkillName(StrEnum):
     # splitters
     SEMANTIC_SPLITTER = "semantic-splitter"
     RECURSIVE_CHARACTER_SPLITTER = "recursive-character-splitter"
+    CONFLUENCE_FAQ_SPLITTER = "confluence-faq-splitter"
 
     # embeddings
     AZ_ADA002_EMBEDDING = "azure-ada002-embedding"
@@ -58,6 +61,7 @@ class AvailableSkillName(StrEnum):
 
     # web loaders
     JIRA_LOADER = "jira-loader"
+    TEAMS_QNA_LOADER = "teams-qna-loader"
 
 
 AVAILABLE_SKILLS = {
@@ -82,8 +86,12 @@ AVAILABLE_SKILLS = {
     SkillType.SPLITTER: {
         AvailableSkillName.SEMANTIC_SPLITTER: SemanticSplitter,
         AvailableSkillName.RECURSIVE_CHARACTER_SPLITTER: RecursiveCharacterTextSplitter,
+        AvailableSkillName.CONFLUENCE_FAQ_SPLITTER: ConfluenceFAQSplitter,
     },
-    SkillType.LOADER: {AvailableSkillName.JIRA_LOADER: JiraLoaderSkill},
+    SkillType.LOADER: {
+        AvailableSkillName.JIRA_LOADER: JiraLoaderSkill,
+        AvailableSkillName.TEAMS_QNA_LOADER: TeamsQnALoaderSkill,
+    },
 }
 
 
