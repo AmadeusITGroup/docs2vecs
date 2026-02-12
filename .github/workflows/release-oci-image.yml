@@ -114,7 +114,7 @@ jobs:
           - 
             name: Build image for ${{ matrix.os }}
             run: |
-              docker build --tag ${{ needs.generate-release-version.outputs.image_tag }}-${{ runner.arch }} .
+              docker build --provenance=false --tag ${{ needs.generate-release-version.outputs.image_tag }}-${{ runner.arch }} .
               docker images
               docker run -i ${{ needs.generate-release-version.outputs.image_tag }}-${{ runner.arch }} -h
               docker image inspect ${{ needs.generate-release-version.outputs.image_tag }}-${{ runner.arch }}
