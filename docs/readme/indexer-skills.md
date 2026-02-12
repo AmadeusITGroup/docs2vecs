@@ -27,6 +27,19 @@ This document describes all available skills that can be used in the indexer pip
    3. An `embedding` to generate embeddings from the chunks.
    4. A `vector-store` to store the embeddings.
 
+4. You have FAQ documents exported from Confluence (`.docx` files) and want to extract Q&A pairs for vectorization? You'll typically need:
+
+   1. An `exporter` (Scroll Word) or `file-scanner` to get the `.docx` files.
+   2. A `confluence-faq-splitter` to extract Q&A pairs directly from the `.docx` headings.
+   3. An `embedding` to generate embeddings from the Q&A chunks.
+   4. A `vector-store` to store the embeddings.
+
+5. You have enriched Q&A JSON output from a Teams FAQ pipeline and want to index it? You'll typically need:
+
+   1. A `teams-qna-loader` to load the enriched Q&A pairs from the JSON file.
+   2. An `embedding` to generate embeddings from the Q&A content.
+   3. A `vector-store` to store the embeddings.
+
 
 # Available Skills
 
@@ -103,7 +116,7 @@ Supported file extensions:
 </details>
 
 <details><summary>Web loaders</summary>
-Load data from web.
+Load data from web or structured files.
 
 ### Jira Loader
 Loads data from Jira issues
@@ -118,6 +131,18 @@ Loads data from Jira issues
         issues: # You need to list jira issues one by one. This is intentional and allows you to control exactly what data goes in.
             - JSTAD-XYZ
             - JIRA-1234
+```
+
+### Teams Q&A Loader
+Loads enriched Q&A pairs from a JSON file produced by the FAQ enrichment pipeline. Each Q&A pair becomes a single document with one chunk. The skill prefers rephrased questions/answers when available, falling back to originals.
+
+```yaml
+- skill: &TeamsQnALoader
+    type: loader
+    name: teams-qna-loader
+    params:
+      file_path: data/processed_output/enriched_qna.json   # Required: path to enriched Q&A JSON file
+      tag: teams-faq                                        # Optional: tag for chunks (default: "enriched-qna")
 ```
 </details>
 
@@ -150,6 +175,29 @@ Splits text by grouping semantically equivalent chunks together. A bit more adva
             api_key: env.AZURE_EMBEDDING_KEY
             api_version: your-api-version
             deployment_name: your-deployment-name
+```
+
+### Confluence FAQ Splitter
+Extracts Q&A pairs directly from FAQ `.docx` files exported from Confluence. Each heading that contains a `?` or starts with a problem/question pattern (e.g. "How do I", "I cannot") is treated as a question, and the body content below it becomes the answer. Each Q&A pair is produced as a single atomic chunk. No `file-reader` is needed — this skill reads `.docx` files directly via `python-docx`.
+
+All parameters are optional with sensible defaults.
+
+```yaml
+- skill: &ConfluenceFAQSplitter
+    type: splitter
+    name: confluence-faq-splitter
+    params:
+      min_heading_level: 2          # Minimum heading level for questions (default: 2)
+      max_heading_level: 6          # Maximum heading level for questions (default: 6)
+      skip_headings:                # Heading titles to skip (default: ['summary'])
+        - summary
+      skip_patterns:                # Text patterns to skip in answer content (default: ['CONFIDENTIAL', 'Search the FAQ', 'Search Artifactory FAQ'])
+        - CONFIDENTIAL
+      question_patterns:            # Prefixes that indicate a question (default: ['i am ', 'i cannot ', 'how do i ', 'what is ', ...])
+        - "how do i "
+        - "i cannot "
+      stop_sections:                # Regex patterns for sections that end Q&A extraction (default: ['related articles', 'see also'])
+        - "^\\s*related\\s*articles?\\s*$"
 ```
 </details>
 

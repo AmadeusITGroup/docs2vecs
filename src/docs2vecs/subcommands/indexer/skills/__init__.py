@@ -13,6 +13,8 @@ from .file_scanner_skill import FileScannerSkill
 from .llama_fastembed_embedding_skill import LlamaFastembedEmbeddingSkill
 from .local_document_parser import LocalDocumentParser
 from .faiss_vector_store_skill import FaissVectorStoreSkill
+from .teams_qna_loader_skill import TeamsQnALoaderSkill
+from .confluence_faq_splitter_skill import ConfluenceFAQSplitter
 
 
 __all__ = [
@@ -31,4 +33,6 @@ __all__ = [
     "LlamaFastembedEmbeddingSkill",
     "LocalDocumentParser",
     "FaissVectorStoreSkill",
+    "TeamsQnALoaderSkill",
+    "ConfluenceFAQSplitter",
 ]

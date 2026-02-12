@@ -105,6 +105,37 @@ definitions:
                 type: integer
                 required: False
                 min: 0
+              # ConfluenceFAQSplitter params
+              min_heading_level:
+                type: integer
+                required: False
+                min: 1
+                max: 9
+              max_heading_level:
+                type: integer
+                required: False
+                min: 1
+                max: 9
+              skip_patterns:
+                type: list
+                required: False
+                schema:
+                  type: string
+              skip_headings:
+                type: list
+                required: False
+                schema:
+                  type: string
+              question_patterns:
+                type: list
+                required: False
+                schema:
+                  type: string
+              stop_sections:
+                type: list
+                required: False
+                schema:
+                  type: string
               mode:
                 type: string
                 required: False
@@ -160,6 +191,9 @@ definitions:
                 required: False
                 min: 1
               path:
+                type: string
+                required: False
+              file_path:
                 type: string
                 required: False
               embedding_model:
