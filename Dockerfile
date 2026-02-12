@@ -22,7 +22,7 @@ RUN curl -LsSf https://astral.sh/uv/install.sh | sh \
     && uv python install 3.11 \
     && uv venv \
     && cd /tmp/build \
-    && uv --native-tls pip install --no-cache . \
+    && uv --native-tls pip install --no-cache --override /tmp/build/etc/uv-overrides.txt . \
     && uv --native-tls run --script /tmp/build/etc/fetchDefaultModels.py \
     && rm -rf /tmp/build
 
