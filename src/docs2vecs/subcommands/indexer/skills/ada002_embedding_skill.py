@@ -1,5 +1,6 @@
 from typing import List, Optional
 
+from azure.identity import DefaultAzureCredential, get_bearer_token_provider
 from llama_index.embeddings.azure_openai import AzureOpenAIEmbedding
 
 from docs2vecs.subcommands.indexer.config import Config
@@ -15,12 +16,32 @@ class AzureAda002EmbeddingSkill(IndexerSkill):
         self.logger.debug(
             f"Requesting embedding for chunk_id={chunk_id}, content_length={len(content)} chars"
         )
-        embed_model = AzureOpenAIEmbedding(
-            deployment_name=self._config["deployment_name"],
-            api_key=self._config["api_key"],
-            azure_endpoint=self._config["endpoint"],
-            api_version=self._config["api_version"],
-        )
+
+        api_key = self._config.get("api_key")
+        if api_key:
+            self.logger.debug("Using API key authentication")
+            embed_model = AzureOpenAIEmbedding(
+                deployment_name=self._config["deployment_name"],
+                api_key=api_key,
+                azure_endpoint=self._config["endpoint"],
+                api_version=self._config["api_version"],
+            )
+        else:
+            self.logger.debug(
+                "No api_key provided, using Azure AD token authentication (DefaultAzureCredential)"
+            )
+            credential = DefaultAzureCredential()
+            token_provider = get_bearer_token_provider(
+                credential, "https://cognitiveservices.azure.com/.default"
+            )
+            embed_model = AzureOpenAIEmbedding(
+                deployment_name=self._config["deployment_name"],
+                azure_ad_token_provider=token_provider,
+                azure_endpoint=self._config["endpoint"],
+                api_version=self._config["api_version"],
+                use_azure_ad=True,
+            )
+
         embedding = embed_model.get_query_embedding(content)
         self.logger.debug(
             f"Successfully received embedding for chunk_id={chunk_id}, embedding_dim={len(embedding) if embedding else 0}"
