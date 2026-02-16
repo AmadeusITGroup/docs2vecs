@@ -18,6 +18,7 @@ from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
 from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
 from docs2vecs.subcommands.indexer.skills.confluence_faq_splitter_skill import ConfluenceFAQSplitter
 from docs2vecs.subcommands.indexer.skills.teams_qna_loader_skill import TeamsQnALoaderSkill
+from docs2vecs.subcommands.indexer.skills.json_writer_skill import JSONWriterSkill
 
 
 class SkillType(StrEnum):
@@ -29,6 +30,7 @@ class SkillType(StrEnum):
     UPLOADER = "uploader"
     SPLITTER = "splitter"
     LOADER = "loader"
+    WRITER = "writer"
 
 
 class AvailableSkillName(StrEnum):
@@ -63,6 +65,9 @@ class AvailableSkillName(StrEnum):
     JIRA_LOADER = "jira-loader"
     TEAMS_QNA_LOADER = "teams-qna-loader"
 
+    # writers
+    JSON_WRITER = "json-writer"
+
 
 AVAILABLE_SKILLS = {
     SkillType.EXPORTER: {
@@ -91,6 +96,9 @@ AVAILABLE_SKILLS = {
     SkillType.LOADER: {
         AvailableSkillName.JIRA_LOADER: JiraLoaderSkill,
         AvailableSkillName.TEAMS_QNA_LOADER: TeamsQnALoaderSkill,
+    },
+    SkillType.WRITER: {
+        AvailableSkillName.JSON_WRITER: JSONWriterSkill,
     },
 }
 

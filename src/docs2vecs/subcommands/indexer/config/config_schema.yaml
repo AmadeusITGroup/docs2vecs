@@ -10,7 +10,7 @@ definitions:
         schema:
           type:
             type: string
-            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader']
+            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader', 'writer']
             required: True
           name:
             type: string
@@ -105,6 +105,10 @@ definitions:
                 type: integer
                 required: False
                 min: 0
+              # JSONWriterSkill params
+              output_path:
+                type: string
+                required: False
               # ConfluenceFAQSplitter params
               min_heading_level:
                 type: integer

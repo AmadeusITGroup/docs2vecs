@@ -15,6 +15,7 @@ from .local_document_parser import LocalDocumentParser
 from .faiss_vector_store_skill import FaissVectorStoreSkill
 from .teams_qna_loader_skill import TeamsQnALoaderSkill
 from .confluence_faq_splitter_skill import ConfluenceFAQSplitter
+from .json_writer_skill import JSONWriterSkill
 
 
 __all__ = [
@@ -35,4 +36,5 @@ __all__ = [
     "FaissVectorStoreSkill",
     "TeamsQnALoaderSkill",
     "ConfluenceFAQSplitter",
+    "JSONWriterSkill",
 ]
