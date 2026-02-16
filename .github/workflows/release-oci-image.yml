@@ -46,7 +46,7 @@ jobs:
                 fetch-depth: 0
         -
             name: Generate next version
-            uses: paulhatch/semantic-version@v5.4.0
+            uses: paulhatch/semantic-version@v6.0.1
             id: semantic-version
             with:
                 tag_prefix: 'v'
