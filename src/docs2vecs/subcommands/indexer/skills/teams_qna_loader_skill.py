@@ -88,7 +88,7 @@ class TeamsQnALoaderSkill(IndexerSkill):
             chunk = Chunk()
             chunk.document_id = document_id
             chunk.document_name = f"{topic} - FAQ"
-            chunk.tag = self.tag
+            chunk.tag = qna.get("tag", self.tag)
             chunk.content = content
             chunk.chunk_id = f"{document_id}_chunk_0"
             chunk.source_link = source_url

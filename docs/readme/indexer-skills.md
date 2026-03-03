@@ -40,6 +40,15 @@ This document describes all available skills that can be used in the indexer pip
    2. An `embedding` to generate embeddings from the Q&A content.
    3. A `vector-store` to store the embeddings.
 
+6. You want to avoid re-running expensive embedding and indexing when the content hasn't changed since the last run? Insert a `writer` (`json-writer`) skill as a change gate:
+
+   1. A `file-scanner` (or `exporter`) to locate/export your source documents.
+   2. A `file-reader` to read their content.
+   3. A `splitter` to split the documents into chunks.
+   4. A `writer` (`json-writer`) with `checksum_path` set — it will compare a SHA-256 checksum of the chunked content against the previous run and, if unchanged, strip chunks so downstream skills are skipped automatically.
+   5. An `embedding` to generate embeddings (skipped when content is unchanged).
+   6. A `vector-store` to store the embeddings (skipped when content is unchanged).
+
 
 # Available Skills
 
@@ -47,7 +56,7 @@ This document describes all available skills that can be used in the indexer pip
 Export data from one source to another. For example export a confluence page to a markdown file.
 
 ### Scroll Word Exporter
-Exports a confluence page to Microsoft Word document
+Exports Confluence pages to Microsoft Word documents. Each entry in `page_urls` and `page_ids` supports an optional inline `tag`. Entries without a tag fall back to the top-level `tag` param.
 
 ```yaml
 - skill: &Exporter
@@ -58,12 +67,19 @@ Exports a confluence page to Microsoft Word document
         auth_token: env.SWE_AUTH_TOKEN  # Scroll Word API token - can be obtained in Confluence
         poll_interval: 20   # Interval in seconds to check the status of the export
         export_folder: ~/Downloads/sw_export_temp   # Path where the exported file(s) should be saved
-        scope: current  # Possible values: [current | descendants]. `current` exports just the current page, where `descendants` include all the descendants of the current page
-        page_ids:   # List all page IDs that you'd like to export
-          - 1774209540
-        page_urls:  # List all page URLs that you'd like to export
-          - https://your/corporate/confluence/prefix/wiki/spaces/your/confluence/space
-        confluence_prefix: https://your/corporate/confluence/prefix # Your corporate Confluence URL
+        scope: current  # Possible values: [current | descendants]
+        confluence_prefix: https://your/corporate/confluence/prefix
+        tag: generic  # Optional: default tag for all pages (fallback)
+        page_urls:
+          - url: https://your/confluence/spaces/SPACE/pages/123/Page+Title
+            tag: my-tag   # Optional: overrides top-level tag for this page
+          - url: https://your/confluence/spaces/SPACE/pages/456/Another+Page
+            # no tag — falls back to top-level tag
+        page_ids:
+          - id: 1774209540
+            tag: my-tag   # Optional
+          - id: 1234567890
+            # no tag — falls back to top-level tag
 ```
 </details>
 
@@ -136,13 +152,15 @@ Loads data from Jira issues
 ### Teams Q&A Loader
 Loads enriched Q&A pairs from a JSON file produced by the FAQ enrichment pipeline. Each Q&A pair becomes a single document with one chunk. The skill prefers rephrased questions/answers when available, falling back to originals.
 
+Each Q&A object in the JSON can optionally include a `tag` field that overrides the skill-level `tag` for that specific chunk, allowing fine-grained tagging within a single file.
+
 ```yaml
 - skill: &TeamsQnALoader
     type: loader
     name: teams-qna-loader
     params:
       file_path: data/processed_output/enriched_qna.json   # Required: path to enriched Q&A JSON file
-      tag: teams-faq                                        # Optional: tag for chunks (default: "enriched-qna")
+      tag: teams-faq                                        # Optional: default tag for chunks (default: "enriched-qna"); can be overridden per Q&A object via a "tag" field in the JSON
 ```
 </details>
 
@@ -201,6 +219,25 @@ All parameters are optional with sensible defaults.
 ```
 </details>
 
+<details><summary>Writer Skills</summary>
+Capture and optionally gate intermediate pipeline state to a file.
+
+### JSON Writer
+Extracts text content from all chunks and writes it as a sorted JSON array to a file. Useful for inspecting intermediate pipeline state (e.g. after splitting) and as a **change-detection gate**: when `checksum_path` is configured, the skill computes a SHA-256 checksum of the output and compares it to the previous run. If the content is unchanged and `skip_downstream_if_unchanged` is `true`, all chunks are stripped from the documents so downstream embedding and indexing skills are automatically skipped.
+
+Documents and their chunks are always passed through for downstream skills — unless the change gate fires.
+
+```yaml
+- skill: &JSONWriter
+    type: writer
+    name: json-writer
+    params:
+      output_path: data/pipeline_output.json    # Path to the output JSON file (default: "data/pipeline_output.json")
+      checksum_path: data/pipeline_output.sha256  # Optional: path to store/read a SHA-256 checksum. Enables change detection.
+      skip_downstream_if_unchanged: true          # Optional: if true (default) and checksum_path is set, strips chunks when content unchanged, skipping downstream embedding/indexing
+```
+</details>
+
 <details><summary>Embedding</summary>
 Generate embeddings from text. Embeddings is a vector representation of your text data.
 
@@ -250,6 +287,7 @@ Stores embeddings in an Azure AI Search index.
         document_name: document_name
         embedding: embedding
       overwrite_index: true  # true - before storing data, it will remove all the documents from your index. false - will append documents to your index
+      batch_size: 50            # Optional: number of documents uploaded per API call (default: 50, max: 50)
 ```
 
 ### Chroma
