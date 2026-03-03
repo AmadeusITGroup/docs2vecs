@@ -1,18 +1,9 @@
-"""Skill that extracts chunk content from Documents and writes it to a JSON file.
+"""Writes chunk content to a JSON file with optional per-document change detection.
 
-Use this skill at any point in a pipeline to capture intermediate state,
-e.g. after a splitter, so the output can be checksummed for change detection
-without running expensive downstream skills like embedding and indexing.
-
-Only the chunk text content is written as a sorted JSON array of strings —
-volatile metadata like filenames, document IDs, and timestamps are excluded
-so the checksum remains stable when the underlying text hasn't changed.
-
-When ``checksum_path`` is configured, the skill compares the current content
-hash against a previously stored one. If unchanged and
-``skip_downstream_if_unchanged`` is true, all chunks are removed from the
-documents so downstream skills (embedding, indexing) naturally skip
-processing — enabling a single-config pipeline with a built-in change gate.
+Outputs a sorted JSON array of chunk text strings (metadata excluded).
+When ``checksum_path`` is set, per-chunk SHA-256 checksums (keyed by
+``document_id``) gate downstream processing — only changed or new chunks
+are kept; unchanged chunks are stripped from their documents.
 """
 
 import hashlib
@@ -26,28 +17,14 @@ from docs2vecs.subcommands.indexer.skills.skill import IndexerSkill
 
 
 class JSONWriterSkill(IndexerSkill):
-    """Extract text content from all chunks and write it as a sorted JSON array.
-
-    The output is a flat list of strings (one per non-empty chunk), sorted
-    alphabetically for deterministic checksumming. Documents are passed
-    through unchanged for downstream skills — unless ``checksum_path`` is
-    set and the content hasn't changed, in which case chunks are stripped
-    so downstream embedding/indexing skills skip processing.
+    """Write chunk text as a sorted JSON array with per-chunk change gating.
 
     Config params:
-        output_path (str): Path to the output JSON file (default:
-                           ``data/pipeline_output.json``). Parent
-                           directories are created automatically.
-        checksum_path (str, optional): Path to store/read a SHA-256
-                           checksum of the JSON output. When set, the
-                           skill compares the current checksum against the
-                           stored one to detect content changes.
-        skip_downstream_if_unchanged (bool, optional): If true (default)
-                           and ``checksum_path`` is set, remove all chunks
-                           from documents when content is unchanged. This
-                           causes downstream skills (embedding, indexing)
-                           to skip processing. Set to false to always pass
-                           chunks through regardless of change detection.
+        output_path (str): Output JSON path (default: ``data/pipeline_output.json``).
+        checksum_path (str, optional): JSON file for per-chunk SHA-256 checksums
+            keyed by ``document_id``.
+        skip_downstream_if_unchanged (bool, optional): Strip unchanged chunks
+            so downstream skills skip them (default: true).
     """
 
     def __init__(self, skill_config: dict, global_config: Config) -> None:
@@ -59,35 +36,47 @@ class JSONWriterSkill(IndexerSkill):
     def _compute_checksum(self, content_bytes: bytes) -> str:
         return hashlib.sha256(content_bytes).hexdigest()
 
-    def _read_stored_checksum(self) -> Optional[str]:
+    def _read_stored_checksums(self) -> dict:
+        """Return stored {document_id: checksum} map, or empty dict."""
         if self._checksum_path and os.path.isfile(self._checksum_path):
             try:
                 with open(self._checksum_path, "r", encoding="utf-8") as f:
-                    return f.read().strip()
+                    data = json.load(f)
+                    if isinstance(data, dict):
+                        return data
+                    # Legacy format — cannot migrate, start fresh.
+                    self.logger.warning(
+                        "Checksum file contains legacy format — starting fresh."
+                    )
             except Exception as e:
-                self.logger.warning(f"Failed to read stored checksum: {e}")
-        return None
+                self.logger.warning(f"Failed to read stored checksums: {e}")
+        return {}
 
-    def _write_checksum(self, checksum: str) -> None:
+    def _write_checksums(self, checksums: dict) -> None:
+        """Save per-document checksums to disk."""
         if self._checksum_path:
             os.makedirs(os.path.dirname(self._checksum_path) or ".", exist_ok=True)
             with open(self._checksum_path, "w", encoding="utf-8") as f:
-                f.write(checksum)
+                json.dump(checksums, f, indent=2, ensure_ascii=False)
+
+    def _compute_chunk_checksum(self, chunk) -> str:
+        """SHA-256 checksum of a single chunk's content."""
+        payload = (chunk.content or "").encode("utf-8")
+        return self._compute_checksum(payload)
 
     def run(self, input: Optional[List[Document]] = None) -> List[Document]:
         if not input:
             self.logger.warning("JSONWriterSkill received no input — nothing to write.")
             return input or []
 
-        # Collect only the content from every chunk across all documents
+        # Collect chunk content across all documents
         contents = []
         for doc in input:
             for chunk in doc.chunks:
                 if chunk.content:
                     contents.append(chunk.content)
 
-        # Sort for deterministic output (stable checksums)
-        contents.sort()
+        contents.sort()  # deterministic order for stable checksums
 
         os.makedirs(os.path.dirname(self._output_path) or ".", exist_ok=True)
 
@@ -102,32 +91,57 @@ class JSONWriterSkill(IndexerSkill):
             self._output_path,
         )
 
-        # ── Checksum-based change gate ──────────────────────────
+        # ── Per-chunk checksum-based change gate ────────────────
+        # Each chunk is keyed by its document_id (e.g. question hash).
+        # Only chunks whose content has changed (or are new) are kept;
+        # unchanged chunks are removed so downstream skills skip them.
         if self._checksum_path:
-            new_checksum = self._compute_checksum(json_bytes)
-            old_checksum = self._read_stored_checksum()
+            old_checksums = self._read_stored_checksums()
+            new_checksums: dict = {}
 
-            if old_checksum and new_checksum == old_checksum and self._skip_if_unchanged:
-                self.logger.info(
-                    "Content unchanged (checksum: %s) — stripping chunks to skip downstream processing.",
-                    new_checksum[:12],
-                )
-                for doc in input:
-                    doc.chunks = set()
-            else:
-                if old_checksum:
-                    self.logger.info(
-                        "Content changed (old: %s, new: %s) — passing chunks to downstream skills.",
-                        old_checksum[:12],
-                        new_checksum[:12],
-                    )
-                else:
-                    self.logger.info(
-                        "No previous checksum found — passing chunks to downstream skills (first run).",
-                    )
+            changed_count = 0
+            unchanged_count = 0
 
-            # Always save the new checksum
-            self._write_checksum(new_checksum)
+            for doc in input:
+                unchanged_chunks = set()
 
-        # Pass-through: downstream skills can still consume the documents
+                for chunk in doc.chunks:
+                    doc_id = chunk.document_id or chunk.chunk_id or "unknown"
+                    chunk_checksum = self._compute_chunk_checksum(chunk)
+                    new_checksums[doc_id] = chunk_checksum
+
+                    old_checksum = old_checksums.get(doc_id)
+
+                    if old_checksum and chunk_checksum == old_checksum and self._skip_if_unchanged:
+                        unchanged_chunks.add(chunk)
+                        unchanged_count += 1
+                        self.logger.debug(
+                            "Chunk %s unchanged — will be stripped.",
+                            doc_id[:12],
+                        )
+                    else:
+                        changed_count += 1
+                        if old_checksum:
+                            self.logger.debug(
+                                "Chunk %s changed (old: %s, new: %s).",
+                                doc_id[:12],
+                                old_checksum[:12],
+                                chunk_checksum[:12],
+                            )
+                        else:
+                            self.logger.debug("Chunk %s is new.", doc_id[:12])
+
+                # Remove unchanged chunks from this document
+                if unchanged_chunks:
+                    doc.chunks -= unchanged_chunks
+
+            self.logger.info(
+                "Change detection: %d changed/new, %d unchanged out of %d chunks.",
+                changed_count,
+                unchanged_count,
+                changed_count + unchanged_count,
+            )
+
+            self._write_checksums(new_checksums)
+
         return input

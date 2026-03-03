@@ -12,19 +12,19 @@ from docs2vecs.subcommands.indexer.skills.skill import IndexerSkill
 class TeamsQnALoaderSkill(IndexerSkill):
     """A skill that loads enriched Q&A pairs from the FAQ pipeline JSON output.
     
-    The JSON file should be an array of enriched Q&A objects with:
-    - thread_id: Unique identifier for the conversation thread
-    - question: Original question text
-    - rephrased_question: AI-polished question (used for embedding)
-    - rephrased_answer: AI-summarized answer (used as content)
-    - topic: Clustered topic category
-    - key_phrases: Extracted key phrases
-    - question_sender: Original question author
-    - timestamp: Message timestamp
-    - answers: Array of original answers
+    The JSON file should be an array of enriched Q&A objects. Fields consumed by this skill:
+    - thread_id: Unique identifier for the conversation thread (used as document ID)
+    - question: Original question text (fallback if rephrased_question is absent)
+    - rephrased_question: AI-polished question (preferred for content)
+    - rephrased_answer: AI-summarized answer (preferred for content)
+    - topic: Clustered topic category (used in document name)
+    - answers: Array of original answer objects (fallback if rephrased_answer is absent)
+    - source_link: Teams message deep link (optional, used as chunk source URL)
+    - tag: Per-item tag override (optional, falls back to skill-level tag)
     
     Configuration parameters:
     - file_path (str): Path to the enriched Q&A JSON file
+    - tag (str): Default tag for chunks (default: "enriched-qna")
     """
 
     def __init__(self, skill_config: dict, global_config: Config) -> None:

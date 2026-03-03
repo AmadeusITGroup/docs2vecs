@@ -45,7 +45,7 @@ This document describes all available skills that can be used in the indexer pip
    1. A `file-scanner` (or `exporter`) to locate/export your source documents.
    2. A `file-reader` to read their content.
    3. A `splitter` to split the documents into chunks.
-   4. A `writer` (`json-writer`) with `checksum_path` set — it will compare a SHA-256 checksum of the chunked content against the previous run and, if unchanged, strip chunks so downstream skills are skipped automatically.
+   4. A `writer` (`json-writer`) with `checksum_path` set — it computes a SHA-256 checksum of each **chunk's content** individually (keyed by `document_id`); only chunks whose content has changed (or are new) pass downstream, so unchanged chunks are stripped and their embedding and indexing are skipped automatically.
    5. An `embedding` to generate embeddings (skipped when content is unchanged).
    6. A `vector-store` to store the embeddings (skipped when content is unchanged).
 
@@ -198,6 +198,8 @@ Splits text by grouping semantically equivalent chunks together. A bit more adva
 ### Confluence FAQ Splitter
 Extracts Q&A pairs directly from FAQ `.docx` files exported from Confluence. Each heading that contains a `?` or starts with a problem/question pattern (e.g. "How do I", "I cannot") is treated as a question, and the body content below it becomes the answer. Each Q&A pair is produced as a single atomic chunk. No `file-reader` is needed — this skill reads `.docx` files directly via `python-docx`.
 
+Each chunk's `document_id` is a SHA-256 hash of the **question text only**, so the ID stays stable even when the answer is updated. This makes it a reliable unique key for Azure AI Search upserts — changed Q&A pairs are re-indexed in place without creating duplicates and pairs whose answers haven't changed are skipped by the `json-writer` change gate.
+
 All parameters are optional with sensible defaults.
 
 ```yaml
@@ -223,18 +225,18 @@ All parameters are optional with sensible defaults.
 Capture and optionally gate intermediate pipeline state to a file.
 
 ### JSON Writer
-Extracts text content from all chunks and writes it as a sorted JSON array to a file. Useful for inspecting intermediate pipeline state (e.g. after splitting) and as a **change-detection gate**: when `checksum_path` is configured, the skill computes a SHA-256 checksum of the output and compares it to the previous run. If the content is unchanged and `skip_downstream_if_unchanged` is `true`, all chunks are stripped from the documents so downstream embedding and indexing skills are automatically skipped.
+Extracts text content from all chunks and writes it as a sorted JSON array to a file. Useful for inspecting intermediate pipeline state (e.g. after splitting) and as a **per-chunk change-detection gate**: when `checksum_path` is configured, the skill computes a SHA-256 checksum of each **chunk's content** individually and stores the results in a JSON map keyed by `document_id`. On subsequent runs, only chunks whose content has changed (or are new) are passed downstream — unchanged chunks are stripped from their documents, so embedding and indexing are skipped for those chunks only.
 
-Documents and their chunks are always passed through for downstream skills — unless the change gate fires.
+This works well with Azure AI Search's key-based upsert — changed documents are re-indexed in place without creating duplicates.
 
 ```yaml
 - skill: &JSONWriter
     type: writer
     name: json-writer
     params:
-      output_path: data/pipeline_output.json    # Path to the output JSON file (default: "data/pipeline_output.json")
-      checksum_path: data/pipeline_output.sha256  # Optional: path to store/read a SHA-256 checksum. Enables change detection.
-      skip_downstream_if_unchanged: true          # Optional: if true (default) and checksum_path is set, strips chunks when content unchanged, skipping downstream embedding/indexing
+      output_path: data/pipeline_output.json       # Path to the combined output JSON file (default: "data/pipeline_output.json")
+      checksum_path: data/checksums.json           # Optional: path to a JSON file storing per-chunk SHA-256 checksums keyed by document_id. Enables per-chunk change detection.
+      skip_downstream_if_unchanged: true           # Optional: if true (default) and checksum_path is set, strips unchanged chunks from their documents, skipping their embedding/indexing
 ```
 </details>
 

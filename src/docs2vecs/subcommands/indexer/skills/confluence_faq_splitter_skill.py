@@ -122,7 +122,11 @@ class ConfluenceFAQSplitter(IndexerSkill):
                     combined_text = f"Q: {question}\n\nA: {answer}{links_text}"
                     
                     chunk = Chunk()
-                    chunk.document_id = hashlib.sha256(combined_text.encode()).hexdigest()
+                    # Hash document_id from question only — the question is the
+                    # stable identity of a Q&A pair, so the ID stays the same
+                    # even when the answer is updated.  This makes it a reliable
+                    # unique key for Azure AI Search upserts.
+                    chunk.document_id = hashlib.sha256(question.encode()).hexdigest()
                     chunk.document_name = Path(doc.filename).name
                     chunk.tag = doc.tag
                     chunk.content = combined_text  # Full Q&A for retrieval
