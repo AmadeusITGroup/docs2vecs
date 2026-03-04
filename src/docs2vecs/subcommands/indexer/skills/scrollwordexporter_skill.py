@@ -11,6 +11,18 @@ from docs2vecs.subcommands.indexer.skills.skill import IndexerSkill
 
 
 class ScrollWorldExporterSkill(IndexerSkill):
+    """Export Confluence pages as DOCX via Scroll Word Exporter API.
+
+    Each entry in ``page_urls`` and ``page_ids`` can carry an optional ``tag``
+    field. Entries without a tag fall back to the top-level ``tag`` param
+    (default: ``""``).
+
+    Config params:
+        page_urls (list): List of dicts with ``url`` (required) and ``tag`` (optional).
+        page_ids (list): List of dicts with ``id`` (required) and ``tag`` (optional).
+        tag (str, optional): Default fallback tag for entries without an explicit tag.
+    """
+
     def __init__(self, config: dict, global_config: Config) -> None:
         super().__init__(config, global_config)
         self._auth_header = f"Bearer {self._config['auth_token']}"
@@ -18,6 +30,7 @@ class ScrollWorldExporterSkill(IndexerSkill):
         self._export_folder = Path(self._config["export_folder"]).expanduser().resolve()
         self._confluence_prefix = self._config["confluence_prefix"]
         self._confluence_prefix = "https://amadeus.atlassian.net/wiki"
+        self._default_tag: str = self._config.get("tag", "")
 
     def _start_export(self, page_id: str, api_url: str, auth_header: str) -> str:
         EXPORT_PARAMETERS = {
@@ -84,24 +97,41 @@ class ScrollWorldExporterSkill(IndexerSkill):
         page_id = tokens[tokens.index("pages") + 1]
         return page_id
 
-    def _extract_confluence_page_ids(self) -> List[str]:
-        cp_id_list = []
+    def _extract_confluence_page_entries(self) -> List[dict]:
+        """Return a list of dicts with 'page_id', 'url' (if available), and 'tag'."""
+        entries = []
+
         if self._config.get("page_ids"):
-            cp_id_list += self._config["page_ids"]
+            for entry in self._config["page_ids"]:
+                entries.append({
+                    "page_id": str(entry["id"]),
+                    "url": None,
+                    "tag": entry.get("tag", self._default_tag),
+                })
 
         if self._config.get("page_urls"):
-            for page_url in self._config["page_urls"]:
-                cp_id_list.append(self._extract_page_id_from_url(page_url))
+            for entry in self._config["page_urls"]:
+                entries.append({
+                    "page_id": self._extract_page_id_from_url(entry["url"]),
+                    "url": entry["url"],
+                    "tag": entry.get("tag", self._default_tag),
+                })
 
-        return cp_id_list
+        if not entries:
+            self.logger.warning("No pages to export — both 'page_ids' and 'page_urls' are empty or missing.")
+
+        return entries
 
     def run(self, input: Optional[List[Document]] = None) -> List[Document]:
         self.logger.info("Running ScrollWorldExporter")
 
         doc_list: List[Document] = []
-        page_id_to_export = self._extract_confluence_page_ids()
-        for page_id in page_id_to_export:
-            self.logger.debug(f"Exporting confluence page: {page_id}")
+        page_entries = self._extract_confluence_page_entries()
+
+        for entry in page_entries:
+            page_id = entry["page_id"]
+            tag = entry["tag"]
+            self.logger.debug(f"Exporting confluence page: {page_id} (tag={tag})")
             export_job_id: str = self._start_export(
                 page_id, self._api_url, self._auth_header
             )
@@ -123,10 +153,9 @@ class ScrollWorldExporterSkill(IndexerSkill):
             source_url = (
                 f"{self._confluence_prefix}/pages/viewpage.action?pageId={page_id}"
             )
-            doc_list.append(
-                Document(
-                    filename=self._download_file(download_url), source_url=source_url
-                )
-            )
+            filename = self._download_file(download_url)
+
+            doc = Document(filename=filename, source_url=source_url, tag=tag)
+            doc_list.append(doc)
 
         return doc_list

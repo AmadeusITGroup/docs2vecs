@@ -36,13 +36,29 @@ definitions:
                 required: False
               page_ids:
                 type: list
+                required: False
                 schema:
-                  type: ['string', 'integer']
+                  type: dict
+                  schema:
+                    id:
+                      type: ['string', 'integer']
+                      required: True
+                    tag:
+                      type: string
+                      required: False
               page_urls:
                 type: list
+                required: False
                 schema:
-                  type: string
-                  regex: '^http.*'
+                  type: dict
+                  schema:
+                    url:
+                      type: string
+                      regex: '^http.*'
+                      required: True
+                    tag:
+                      type: string
+                      required: False
               confluence_prefix:
                 type: string
                 regex: '^http.*'
@@ -108,6 +124,12 @@ definitions:
               # JSONWriterSkill params
               output_path:
                 type: string
+                required: False
+              checksum_path:
+                type: string
+                required: False
+              skip_downstream_if_unchanged:
+                type: boolean
                 required: False
               # ConfluenceFAQSplitter params
               min_heading_level:
@@ -183,6 +205,10 @@ definitions:
                     required: False
               overwrite_index:
                 type: boolean
+              batch_size:
+                type: integer
+                required: False
+                min: 1
               jql_query:
                 type: string
                 required: False
