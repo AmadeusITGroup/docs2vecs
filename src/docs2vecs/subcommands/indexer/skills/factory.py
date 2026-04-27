@@ -16,6 +16,7 @@ from docs2vecs.subcommands.indexer.skills import ScrollWorldExporterSkill
 from docs2vecs.subcommands.indexer.skills import SemanticSplitter
 from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
 from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
+from docs2vecs.subcommands.indexer.skills import ConfluenceHTMLToMarkdownSkill
 from docs2vecs.subcommands.indexer.skills.confluence_faq_splitter_skill import ConfluenceFAQSplitter
 from docs2vecs.subcommands.indexer.skills.teams_qna_loader_skill import TeamsQnALoaderSkill
 from docs2vecs.subcommands.indexer.skills.json_writer_skill import JSONWriterSkill
@@ -32,6 +33,7 @@ class SkillType(StrEnum):
     SPLITTER = "splitter"
     LOADER = "loader"
     WRITER = "writer"
+    TRANSFORMER = "transformer"
 
 
 class AvailableSkillName(StrEnum):
@@ -70,6 +72,9 @@ class AvailableSkillName(StrEnum):
     # writers
     JSON_WRITER = "json-writer"
 
+    # transformers
+    CONFLUENCE_HTML_TO_MARKDOWN = "confluence-html-to-markdown"
+
 
 AVAILABLE_SKILLS = {
     SkillType.EXPORTER: {
@@ -102,6 +107,9 @@ AVAILABLE_SKILLS = {
     },
     SkillType.WRITER: {
         AvailableSkillName.JSON_WRITER: JSONWriterSkill,
+    },
+    SkillType.TRANSFORMER: {
+        AvailableSkillName.CONFLUENCE_HTML_TO_MARKDOWN: ConfluenceHTMLToMarkdownSkill,
     },
 }
 
