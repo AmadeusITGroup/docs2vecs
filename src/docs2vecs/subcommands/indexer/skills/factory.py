@@ -19,6 +19,7 @@ from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
 from docs2vecs.subcommands.indexer.skills.confluence_faq_splitter_skill import ConfluenceFAQSplitter
 from docs2vecs.subcommands.indexer.skills.teams_qna_loader_skill import TeamsQnALoaderSkill
 from docs2vecs.subcommands.indexer.skills.json_writer_skill import JSONWriterSkill
+from docs2vecs.subcommands.indexer.skills.bedrock_titan_embedding_skill import BedrockTitanEmbeddingSkill
 
 
 class SkillType(StrEnum):
@@ -60,6 +61,7 @@ class AvailableSkillName(StrEnum):
     # embeddings
     AZ_ADA002_EMBEDDING = "azure-ada002-embedding"
     LLAMA_FASTEMBED = "llama-fastembed"
+    BEDROCK_TITAN_EMBEDDING = "bedrock-titan-embedding"
 
     # web loaders
     JIRA_LOADER = "jira-loader"
@@ -81,6 +83,7 @@ AVAILABLE_SKILLS = {
     SkillType.EMBEDDING: {
         AvailableSkillName.AZ_ADA002_EMBEDDING: AzureAda002EmbeddingSkill,
         AvailableSkillName.LLAMA_FASTEMBED: LlamaFastembedEmbeddingSkill,
+        AvailableSkillName.BEDROCK_TITAN_EMBEDDING: BedrockTitanEmbeddingSkill,
     },
     SkillType.VECTOR_STORE: {
         AvailableSkillName.AZ_AISearch: AzureVectorStoreSkill,

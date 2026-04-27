@@ -265,6 +265,22 @@ Generates embeddings from text using `llama_index` library.
     type: embedding
     name: llama-fastembed
 ```
+
+### AWS Bedrock Titan
+Generates embeddings using AWS Bedrock's Titan Embed Text v2 model. AWS credentials are resolved from the standard boto3 credential chain (env vars `AWS_ACCESS_KEY_ID`/`AWS_SECRET_ACCESS_KEY`/`AWS_SESSION_TOKEN`, `AWS_PROFILE`, IAM role, `~/.aws/credentials`, etc.) — do not put them in the YAML.
+
+```yaml
+- skill: &BedrockTitanEmbedding
+    type: embedding
+    name: bedrock-titan-embedding
+    params:
+      region: us-east-1                         # Optional: falls back to AWS_REGION / default profile region
+      model_id: amazon.titan-embed-text-v2:0    # Optional (default)
+      dimensions: 1024                          # Optional: 256 | 512 | 1024 (default 1024)
+      normalize: true                           # Optional (default true)
+      max_retries: 3                            # Optional (default 3)
+      retry_backoff: 2                          # Optional seconds, linear per attempt (default 2)
+```
 </details>
 
 
