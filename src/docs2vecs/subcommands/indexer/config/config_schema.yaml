@@ -10,7 +10,7 @@ definitions:
         schema:
           type:
             type: string
-            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader', 'writer']
+            allowed: ['exporter', 'embedding', 'vector-store', 'uploader', 'splitter', 'integrated_vec', 'file-scanner', 'file-reader', 'loader', 'writer', 'transformer']
             required: True
           name:
             type: string
@@ -96,7 +96,7 @@ definitions:
               scope:
                 type: string
                 required: False
-                allowed: ['descendants', 'current']
+                allowed: ['descendants', 'current', 'document']
               recursive:
                 type: boolean
               filter:
@@ -123,6 +123,12 @@ definitions:
                 min: 0
               # JSONWriterSkill params
               output_path:
+                type: string
+                required: False
+              input_dir:
+                type: string
+                required: False
+              output_dir:
                 type: string
                 required: False
               checksum_path:
@@ -259,6 +265,9 @@ definitions:
                 type: integer
                 required: False
                 min: 1
+              template_id:
+                type: string
+                required: False
 
       skillset:
         type: list

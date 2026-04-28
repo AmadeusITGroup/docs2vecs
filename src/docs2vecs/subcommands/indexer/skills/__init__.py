@@ -2,6 +2,7 @@ from .ada002_embedding_skill import AzureAda002EmbeddingSkill
 from .azure_vector_store_skill import AzureVectorStoreSkill
 from .document_intelligence_skill import AzureDocumentIntelligenceSkill
 from .jira_loader_skill import JiraLoaderSkill
+from .scrollhtmlexporter_skill import ScrollHTMLExporterSkill
 from .scrollwordexporter_skill import ScrollWorldExporterSkill
 from .chromadb_vector_store_skill import ChromaDBVectorStoreSkill
 from .tracker import VectorStoreTracker
@@ -15,6 +16,7 @@ from .local_document_parser import LocalDocumentParser
 from .faiss_vector_store_skill import FaissVectorStoreSkill
 from .teams_qna_loader_skill import TeamsQnALoaderSkill
 from .confluence_faq_splitter_skill import ConfluenceFAQSplitter
+from .confluence_html_reader_skill import ConfluenceHTMLToMarkdownSkill
 from .json_writer_skill import JSONWriterSkill
 from .bedrock_titan_embedding_skill import BedrockTitanEmbeddingSkill
 
@@ -24,6 +26,7 @@ __all__ = [
     "AzureDocumentIntelligenceSkill",
     "AzureVectorStoreSkill",
     "JiraLoaderSkill",
+    "ScrollHTMLExporterSkill",
     "ScrollWorldExporterSkill",
     "VectorStoreTracker",
     "ChromaDBVectorStoreSkill",
@@ -37,6 +40,7 @@ __all__ = [
     "FaissVectorStoreSkill",
     "TeamsQnALoaderSkill",
     "ConfluenceFAQSplitter",
+    "ConfluenceHTMLToMarkdownSkill",
     "JSONWriterSkill",
     "BedrockTitanEmbeddingSkill",
 ]

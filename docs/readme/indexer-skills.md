@@ -20,27 +20,37 @@ This document describes all available skills that can be used in the indexer pip
    4. An `embedding` to generate embeddings from the chunks.
    5. A `vector-store` to store the embeddings.
 
-3. You have a list of jira tickets that you'd like to vectorize? You'll typically need the following type of skills in your config file:
+3. You have Confluence pages and want to export them as HTML, convert to Markdown, then vectorize? You'll typically need:
+
+   1. A `scrollhtml-exporter` to export the Confluence pages as HTML (ZIP).
+   2. A `confluence-html-to-markdown` transformer to convert the HTML export into self-contained Markdown (with images).
+   3. A `file-scanner` to pick up the resulting `.md` files.
+   4. A `file-reader` to read the Markdown content.
+   5. A `splitter` to split the documents into chunks.
+   6. An `embedding` to generate embeddings from the chunks.
+   7. A `vector-store` to store the embeddings.
+
+4. You have a list of jira tickets that you'd like to vectorize? You'll typically need the following type of skills in your config file:
 
    1. A `jira-loader` to extract the data from the jira tickets
    2. A `splitter` to split the data into chunks.
    3. An `embedding` to generate embeddings from the chunks.
    4. A `vector-store` to store the embeddings.
 
-4. You have FAQ documents exported from Confluence (`.docx` files) and want to extract Q&A pairs for vectorization? You'll typically need:
+5. You have FAQ documents exported from Confluence (`.docx` files) and want to extract Q&A pairs for vectorization? You'll typically need:
 
    1. An `exporter` (Scroll Word) or `file-scanner` to get the `.docx` files.
    2. A `confluence-faq-splitter` to extract Q&A pairs directly from the `.docx` headings.
    3. An `embedding` to generate embeddings from the Q&A chunks.
    4. A `vector-store` to store the embeddings.
 
-5. You have enriched Q&A JSON output from a Teams FAQ pipeline and want to index it? You'll typically need:
+6. You have enriched Q&A JSON output from a Teams FAQ pipeline and want to index it? You'll typically need:
 
    1. A `teams-qna-loader` to load the enriched Q&A pairs from the JSON file.
    2. An `embedding` to generate embeddings from the Q&A content.
    3. A `vector-store` to store the embeddings.
 
-6. You want to avoid re-running expensive embedding and indexing when the content hasn't changed since the last run? Insert a `writer` (`json-writer`) skill as a change gate:
+7. You want to avoid re-running expensive embedding and indexing when the content hasn't changed since the last run? Insert a `writer` (`json-writer`) skill as a change gate:
 
    1. A `file-scanner` (or `exporter`) to locate/export your source documents.
    2. A `file-reader` to read their content.
@@ -80,6 +90,53 @@ Exports Confluence pages to Microsoft Word documents. Each entry in `page_urls` 
             tag: my-tag   # Optional
           - id: 1234567890
             # no tag — falls back to top-level tag
+```
+
+### Scroll HTML Exporter
+Exports Confluence pages as HTML via the K15t Scroll HTML Exporter REST API. The export is downloaded as a ZIP and extracted locally. This is typically followed by the `confluence-html-to-markdown` transformer skill.
+
+API tokens are exporter-specific — you need a **Scroll HTML Exporter** token (User Profile → Personal settings → Scroll HTML Exporter API Tokens).
+
+Data residency: use the correct regional endpoint:
+- US: `https://scroll-html.us.exporter.k15t.app/api/public/1/exports`
+- EU/Germany: `https://scroll-html.de.exporter.k15t.app/api/public/1/exports`
+
+```yaml
+- skill: &ScrollHTMLExporter
+    type: exporter
+    name: scrollhtml-exporter
+    params:
+        api_url: https://scroll-html.de.exporter.k15t.app/api/public/1/exports  # Use .us. for US region
+        auth_token: env.SCROLL_HTML_EXPORTER_TOKEN  # Scroll HTML Exporter API token
+        poll_interval: 2    # Interval in seconds to check the status of the export
+        export_folder: ~/Downloads/html_export  # Path where the exported ZIP is extracted
+        scope: current  # Possible values: [current | descendants | document]
+        template_id: com.k15t.scroll.html.helpcenter  # Optional: defaults to the bundled Help Center template
+        confluence_prefix: https://your-instance.atlassian.net/wiki  # Optional: used to build source_url
+        tag: my-docs  # Optional: default tag for all pages
+        page_ids:
+          - id: 1436680207
+            tag: copilot-docs  # Optional
+        page_urls:
+          - url: https://your-instance.atlassian.net/wiki/spaces/SPACE/pages/123/Page+Title
+```
+</details>
+
+<details><summary>Transformer Skills</summary>
+Transform data from one format to another on disk. Transformers sit between exporters and file-scanners in the pipeline.
+
+### Confluence HTML to Markdown
+Converts a Scroll HTML export folder into self-contained Markdown files. Images referenced in the pages are copied into an `images/` sub-folder so the output is portable without the original HTML.
+
+Typically used after `scrollhtml-exporter` and before `file-scanner`.
+
+```yaml
+- skill: &HtmlToMarkdown
+    type: transformer
+    name: confluence-html-to-markdown
+    params:
+        input_dir: ~/Downloads/html_export/1436680207  # Path to the extracted Scroll HTML export
+        output_dir: ~/Downloads/html_export/1436680207/markdown  # Optional: defaults to <input_dir>/markdown
 ```
 </details>
 

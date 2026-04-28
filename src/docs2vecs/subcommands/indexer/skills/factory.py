@@ -12,10 +12,12 @@ from docs2vecs.subcommands.indexer.skills import FileScannerSkill
 from docs2vecs.subcommands.indexer.skills import JiraLoaderSkill
 from docs2vecs.subcommands.indexer.skills import LlamaFastembedEmbeddingSkill
 from docs2vecs.subcommands.indexer.skills import RecursiveCharacterTextSplitter
+from docs2vecs.subcommands.indexer.skills import ScrollHTMLExporterSkill
 from docs2vecs.subcommands.indexer.skills import ScrollWorldExporterSkill
 from docs2vecs.subcommands.indexer.skills import SemanticSplitter
 from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
 from docs2vecs.subcommands.indexer.skills import FaissVectorStoreSkill
+from docs2vecs.subcommands.indexer.skills import ConfluenceHTMLToMarkdownSkill
 from docs2vecs.subcommands.indexer.skills.confluence_faq_splitter_skill import ConfluenceFAQSplitter
 from docs2vecs.subcommands.indexer.skills.teams_qna_loader_skill import TeamsQnALoaderSkill
 from docs2vecs.subcommands.indexer.skills.json_writer_skill import JSONWriterSkill
@@ -32,11 +34,13 @@ class SkillType(StrEnum):
     SPLITTER = "splitter"
     LOADER = "loader"
     WRITER = "writer"
+    TRANSFORMER = "transformer"
 
 
 class AvailableSkillName(StrEnum):
     # exporters
     SCROLLWORD_EXPORTER = "scrollword-exporter"
+    SCROLLHTML_EXPORTER = "scrollhtml-exporter"
 
     # file readers
     AZ_DOCUMENT_INTELLIGENCE = "azure-document-intelligence"
@@ -70,10 +74,14 @@ class AvailableSkillName(StrEnum):
     # writers
     JSON_WRITER = "json-writer"
 
+    # transformers
+    CONFLUENCE_HTML_TO_MARKDOWN = "confluence-html-to-markdown"
+
 
 AVAILABLE_SKILLS = {
     SkillType.EXPORTER: {
         AvailableSkillName.SCROLLWORD_EXPORTER: ScrollWorldExporterSkill,
+        AvailableSkillName.SCROLLHTML_EXPORTER: ScrollHTMLExporterSkill,
     },
     SkillType.FILE_SCANNER: {AvailableSkillName.MULTI_FILE_SCANNER: FileScannerSkill},
     SkillType.FILE_READER: {
@@ -102,6 +110,9 @@ AVAILABLE_SKILLS = {
     },
     SkillType.WRITER: {
         AvailableSkillName.JSON_WRITER: JSONWriterSkill,
+    },
+    SkillType.TRANSFORMER: {
+        AvailableSkillName.CONFLUENCE_HTML_TO_MARKDOWN: ConfluenceHTMLToMarkdownSkill,
     },
 }
 
