@@ -76,7 +76,7 @@ uv run --directory src docs2vecs indexer --config ~/Downloads/sw_export_temp/con
 
 The config yaml file is validated against [this schema](./src/docs2vecs/subcommands/indexer/config/config_schema.yaml).
 
-Please check [sample config file 1](docs/readme/sample-config-file-1.yml), [sample config file 2](docs/readme/sample-config-file-2.yml) for your reference.
+Please check [sample config file 1](docs/readme/sample-config-file-1.yml), [sample config file 2](docs/readme/sample-config-file-2.yml), [sample config file 3](docs/readme/sample-config-file-3.yml) for your reference.
 
 </details>
 
@@ -166,7 +166,7 @@ Please note that **api keys** should **NOT** be stored in config files, and shou
 
 Make sure you export the environment variables before you run the indexer. For convenience you can use the `--env` argument to supply your own `.env` file.
 
-Generate and use Scroll Word Exporter API tokens from the Personal Settings section of your Confluence profile.
+Generate and use Scroll Word Exporter API tokens from the Personal Settings section of your Confluence profile. For the Scroll HTML Exporter, generate a separate token from Personal Settings → Scroll HTML Exporter API Tokens. Note that each Scroll exporter (Word, HTML, PDF) requires its own token, and you must use the correct regional endpoint (US or EU/Germany).
 
 ## Experimental features
 <details><summary>Tracker</summary>

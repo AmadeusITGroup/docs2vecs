@@ -96,7 +96,7 @@ definitions:
               scope:
                 type: string
                 required: False
-                allowed: ['descendants', 'current']
+                allowed: ['descendants', 'current', 'document']
               recursive:
                 type: boolean
               filter:
@@ -265,6 +265,9 @@ definitions:
                 type: integer
                 required: False
                 min: 1
+              template_id:
+                type: string
+                required: False
 
       skillset:
         type: list

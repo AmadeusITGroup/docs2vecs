@@ -2,6 +2,7 @@ from .ada002_embedding_skill import AzureAda002EmbeddingSkill
 from .azure_vector_store_skill import AzureVectorStoreSkill
 from .document_intelligence_skill import AzureDocumentIntelligenceSkill
 from .jira_loader_skill import JiraLoaderSkill
+from .scrollhtmlexporter_skill import ScrollHTMLExporterSkill
 from .scrollwordexporter_skill import ScrollWorldExporterSkill
 from .chromadb_vector_store_skill import ChromaDBVectorStoreSkill
 from .tracker import VectorStoreTracker
@@ -25,6 +26,7 @@ __all__ = [
     "AzureDocumentIntelligenceSkill",
     "AzureVectorStoreSkill",
     "JiraLoaderSkill",
+    "ScrollHTMLExporterSkill",
     "ScrollWorldExporterSkill",
     "VectorStoreTracker",
     "ChromaDBVectorStoreSkill",

@@ -1,0 +1,63 @@
+definitions:
+  - skill: &ScrollHTMLExporter
+      type: exporter
+      name: scrollhtml-exporter
+      params:
+        api_url: https://scroll-html.de.exporter.k15t.app/api/public/1/exports
+        auth_token: env.SCROLL_HTML_EXPORTER_TOKEN
+        poll_interval: 2
+        export_folder: ~/Downloads/html_export
+        scope: current
+        confluence_prefix: https://amadeus.atlassian.net/wiki
+        page_ids:
+          - id: 1436680207
+
+  - skill: &HtmlToMarkdown
+      type: transformer
+      name: confluence-html-to-markdown
+      params:
+        input_dir: ~/Downloads/html_export/1436680207
+        output_dir: ~/Downloads/html_export/1436680207/markdown
+
+  - skill: &FileScanner
+      type: file-scanner
+      name: multi-file-scanner
+      params:
+        path: ~/Downloads/html_export/1436680207/markdown
+        filter: ["*.md"]
+        recursive: false
+
+  - skill: &FileReader
+      type: file-reader
+      name: multi-file-reader
+
+  - skill: &TextSplitter
+      type: splitter
+      name: recursive-character-splitter
+      params:
+        chunk_size: 1200
+        overlap: 200
+
+  - skill: &FastEmbed
+      type: embedding
+      name: llama-fastembed
+
+  - skill: &ChromaDbVectorStore
+      type: vector-store
+      name: chromadb
+      params:
+        db_path: ~/Downloads/html_export/chroma_db
+        collection_name: confluence-html-export
+
+  - skillset: &Pipeline
+      - *ScrollHTMLExporter
+      - *HtmlToMarkdown
+      - *FileScanner
+      - *FileReader
+      - *TextSplitter
+      - *FastEmbed
+      - *ChromaDbVectorStore
+
+indexer:
+  id: confluence-html-to-vectorstore
+  skillset: *Pipeline

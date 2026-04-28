@@ -12,6 +12,7 @@ from docs2vecs.subcommands.indexer.skills import FileScannerSkill
 from docs2vecs.subcommands.indexer.skills import JiraLoaderSkill
 from docs2vecs.subcommands.indexer.skills import LlamaFastembedEmbeddingSkill
 from docs2vecs.subcommands.indexer.skills import RecursiveCharacterTextSplitter
+from docs2vecs.subcommands.indexer.skills import ScrollHTMLExporterSkill
 from docs2vecs.subcommands.indexer.skills import ScrollWorldExporterSkill
 from docs2vecs.subcommands.indexer.skills import SemanticSplitter
 from docs2vecs.subcommands.indexer.skills import VectorStoreTracker
@@ -39,6 +40,7 @@ class SkillType(StrEnum):
 class AvailableSkillName(StrEnum):
     # exporters
     SCROLLWORD_EXPORTER = "scrollword-exporter"
+    SCROLLHTML_EXPORTER = "scrollhtml-exporter"
 
     # file readers
     AZ_DOCUMENT_INTELLIGENCE = "azure-document-intelligence"
@@ -79,6 +81,7 @@ class AvailableSkillName(StrEnum):
 AVAILABLE_SKILLS = {
     SkillType.EXPORTER: {
         AvailableSkillName.SCROLLWORD_EXPORTER: ScrollWorldExporterSkill,
+        AvailableSkillName.SCROLLHTML_EXPORTER: ScrollHTMLExporterSkill,
     },
     SkillType.FILE_SCANNER: {AvailableSkillName.MULTI_FILE_SCANNER: FileScannerSkill},
     SkillType.FILE_READER: {
