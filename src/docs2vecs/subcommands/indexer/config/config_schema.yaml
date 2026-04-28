@@ -237,6 +237,28 @@ definitions:
                     type: string
                   deployment_name:
                     type: string
+              # BedrockTitanEmbeddingSkill params
+              region:
+                type: string
+                required: False
+              model_id:
+                type: string
+                required: False
+              dimensions:
+                type: integer
+                required: False
+                allowed: [256, 512, 1024]
+              normalize:
+                type: boolean
+                required: False
+              max_retries:
+                type: integer
+                required: False
+                min: 1
+              retry_backoff:
+                type: integer
+                required: False
+                min: 1
 
       skillset:
         type: list

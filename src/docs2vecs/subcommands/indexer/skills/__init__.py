@@ -16,6 +16,7 @@ from .faiss_vector_store_skill import FaissVectorStoreSkill
 from .teams_qna_loader_skill import TeamsQnALoaderSkill
 from .confluence_faq_splitter_skill import ConfluenceFAQSplitter
 from .json_writer_skill import JSONWriterSkill
+from .bedrock_titan_embedding_skill import BedrockTitanEmbeddingSkill
 
 
 __all__ = [
@@ -37,4 +38,5 @@ __all__ = [
     "TeamsQnALoaderSkill",
     "ConfluenceFAQSplitter",
     "JSONWriterSkill",
+    "BedrockTitanEmbeddingSkill",
 ]
