@@ -76,7 +76,7 @@ class BedrockTitanEmbeddingSkill(IndexerSkill):
             self.logger.debug(f"Processing document: {doc.filename}")
             for chunk in doc.chunks:
                 self.logger.debug(f"Creating embedding for chunk: {chunk.chunk_id}")
-                chunk.embedding = "" if not chunk.content else self._embed_text(
+                chunk.embedding = [] if not chunk.content else self._embed_text(
                     chunk.content, chunk_id=chunk.chunk_id
                 )
 
